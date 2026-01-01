@@ -2,68 +2,82 @@
 
 /* ========================================
    Harmonic Insight 統一デザインシステム
+   建設DXの窓口 トンマナ準拠（白ベース＋ゴールド）
    ======================================== */
 
 :root {
   /* ========== 背景 ========== */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #0f0f15;
-  --bg-tertiary: #14141c;
-  --bg-elevated: #1a1a24;
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f5;
+  --bg-elevated: #ffffff;
+  --bg-accent: #fffbf0;
 
   /* グラデーション */
-  --gradient-page: linear-gradient(180deg, #0a0a0f 0%, #0f0f18 50%, #0a0a0f 100%);
-  --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #12121a 50%, #0a1628 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
+  --gradient-page: linear-gradient(180deg, #fafafa 0%, #ffffff 50%, #fafafa 100%);
+  --gradient-hero: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f5f5f5 100%);
+  --gradient-card: none;
 
   /* ========== テキスト ========== */
-  --text-primary: #f0f0f0;
-  --text-secondary: #c8c8d0;
-  --text-muted: #78788a;
-  --text-subtle: #50505a;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-subtle: #a3a3a3;
 
-  /* ========== アクセントカラー ========== */
-  --accent-primary: #3b82f6;
-  --accent-primary-light: #60a5fa;
-  --accent-primary-dark: #2563eb;
+  /* ========== アクセントカラー（ゴールド）========== */
+  --accent-primary: #8b6914;
+  --accent-primary-light: #b8941f;
+  --accent-primary-dark: #6b5010;
 
-  --accent-green: #10b981;
-  --accent-green-light: #34d399;
+  --accent-green: #059669;
+  --accent-green-light: #10b981;
 
-  --accent-orange: #f59e0b;
-  --accent-orange-light: #fbbf24;
+  --accent-orange: #ea580c;
+  --accent-orange-light: #f97316;
 
-  --accent-red: #ef4444;
-  --accent-purple: #8b5cf6;
-  --accent-teal: #14b8a6;
+  --accent-red: #dc2626;
+  --accent-purple: #7c3aed;
+  --accent-teal: #0d9488;
 
   /* ========== ボーダー ========== */
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-default: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-subtle: #e5e5e5;
+  --border-default: #d4d4d4;
+  --border-strong: #a3a3a3;
 
   /* ========== シャドウ ========== */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(139, 105, 20, 0.2);
 
   /* ========== スペーシング ========== */
   --section-padding: 80px;
   --section-padding-mobile: 48px;
   --container-max: 1200px;
   --card-padding: 24px;
-  --card-radius: 16px;
+  --card-radius: 0px;
 
   /* ========== フォント ========== */
   --font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
                "Yu Gothic", "Meiryo", sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ========== Gray Scale ========== */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
 }
 
 /* Tailwind v4 Theme Configuration */
 @theme inline {
-  /* Colors */
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-bg-tertiary: var(--bg-tertiary);
@@ -76,27 +90,17 @@
 
   --color-accent-primary: var(--accent-primary);
   --color-accent-primary-light: var(--accent-primary-light);
-  --color-accent-primary-dark: var(--accent-primary-dark);
-  --color-accent-green: var(--accent-green);
-  --color-accent-green-light: var(--accent-green-light);
-  --color-accent-orange: var(--accent-orange);
-  --color-accent-orange-light: var(--accent-orange-light);
-  --color-accent-red: var(--accent-red);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-teal: var(--accent-teal);
 
   --color-border-subtle: var(--border-subtle);
   --color-border-default: var(--border-default);
   --color-border-strong: var(--border-strong);
 
-  /* Shadows */
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
-  --shadow-glow: var(--shadow-glow);
 
-  /* Fonts */
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 }
 
@@ -129,14 +133,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
 }
 
 h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 h2 {
@@ -149,7 +153,7 @@ h3 {
 
 p {
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 a {
@@ -177,7 +181,7 @@ a {
   }
 
   h1 {
-    font-size: 1.875rem;
+    font-size: 1.75rem;
   }
 
   h2 {
@@ -190,17 +194,14 @@ a {
    ======================================== */
 
 .card {
-  background: var(--gradient-card);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--card-radius);
   padding: var(--card-padding);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   border-color: var(--border-default);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
 /* ========================================
@@ -211,35 +212,37 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
+  gap: 12px;
+  padding: 16px 40px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
 }
 
 .btn-primary {
   background: var(--accent-primary);
   color: white;
+  border-color: var(--accent-primary);
 }
 
 .btn-primary:hover {
   background: var(--accent-primary-light);
-  box-shadow: var(--shadow-glow);
+  border-color: var(--accent-primary-light);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   border: 1px solid var(--border-default);
 }
 
 .btn-ghost:hover {
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+  color: white;
 }
 
 /* ========================================
@@ -249,15 +252,35 @@ a {
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-teal) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-primary);
 }
 
 .stat-label {
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* ========================================
+   Section Title (建設DXスタイル)
+   ======================================== */
+
+.section-title {
+  color: var(--gray-900);
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.section-subtitle {
+  color: var(--gray-500);
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 3.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.9;
 }
 
 /* ========================================
@@ -275,14 +298,25 @@ a {
 }
 
 /* ========================================
-   Gradient Text
+   Accent Text
    ======================================== */
 
+.accent-text {
+  color: var(--accent-primary);
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-teal) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-primary);
+}
+
+/* ========================================
+   Highlight Box (建設DXスタイル)
+   ======================================== */
+
+.highlight-box {
+  border-left: 2px solid var(--accent-primary);
+  background: var(--bg-accent);
+  padding: 1.5rem 2rem;
 }
 
 /* ========================================
@@ -297,11 +331,10 @@ a {
   background: var(--gradient-hero);
 }
 
-/* Subtle grid pattern overlay */
 .bg-pattern {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -315,16 +348,16 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-tertiary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
+  background: var(--border-default);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-subtle);
+  background: var(--border-strong);
 }
 
 /* ========================================
@@ -332,6 +365,15 @@ a {
    ======================================== */
 
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(139, 105, 20, 0.2);
   color: var(--text-primary);
+}
+
+/* ========================================
+   Horizontal Rule
+   ======================================== */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
 }
