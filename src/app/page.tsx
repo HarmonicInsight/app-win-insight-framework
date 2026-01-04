@@ -72,6 +72,17 @@ export default function HomePage() {
 
             <hr className="border-gray-200" />
 
+            <Link href="/rules" className="block group">
+              <p className="text-[10px] text-gray-400 tracking-widest mb-2">
+                RULES
+              </p>
+              <p className="text-gray-900 group-hover:text-amber-700 transition-colors">
+                ルールを実装する
+              </p>
+            </Link>
+
+            <hr className="border-gray-200" />
+
             <Link href="/pixie" className="block group">
               <p className="text-[10px] text-gray-400 tracking-widest mb-2">
                 IMPLEMENTATION

@@ -1,7 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { SITES, CURRENT_SITE_ID } from "@/lib/navigation";
+
+// サイト内ページリンク
+const internalPages = [
+  { name: "課題を知る", href: "/challenges/kpi", label: "CHALLENGES" },
+  { name: "フレームワーク", href: "/framework", label: "FRAMEWORK" },
+  { name: "ルール", href: "/rules", label: "RULES" },
+  { name: "実装", href: "/pixie", label: "IMPLEMENTATION" },
+  { name: "事例", href: "/examples", label: "STORIES" },
+];
 
 export function GlobalNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,9 +23,9 @@ export function GlobalNav() {
         <div className="flex items-center justify-between h-10 text-xs">
           {/* Left: Brand + Nav */}
           <div className="flex items-center min-w-0">
-            <span className="text-gray-400 tracking-wider font-medium whitespace-nowrap mr-2 sm:mr-3">
+            <Link href="/" className="text-gray-400 tracking-wider font-medium whitespace-nowrap mr-2 sm:mr-3 hover:text-white transition-colors">
               Harmonic Insight
-            </span>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden sm:flex items-center">
@@ -67,20 +77,44 @@ export function GlobalNav() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="sm:hidden py-3 border-t border-gray-800">
-            {sites.map((site) => (
-              <a
-                key={site.id}
-                href={site.url}
-                className={`block py-2.5 px-1 text-sm ${
-                  site.id === CURRENT_SITE_ID
-                    ? "text-white font-medium"
-                    : "text-gray-400 hover:text-white"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {site.name}
-              </a>
-            ))}
+            {/* Internal Pages */}
+            <div className="mb-4">
+              <p className="text-[10px] text-gray-500 tracking-widest px-1 mb-2">
+                このサイト
+              </p>
+              {internalPages.map((page) => (
+                <Link
+                  key={page.href}
+                  href={page.href}
+                  className="block py-2 px-1 text-sm text-gray-300 hover:text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {page.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* External Sites */}
+            <div className="pt-3 border-t border-gray-800">
+              <p className="text-[10px] text-gray-500 tracking-widest px-1 mb-2">
+                HARMONIC INSIGHT
+              </p>
+              {sites.map((site) => (
+                <a
+                  key={site.id}
+                  href={site.url}
+                  className={`block py-2 px-1 text-sm ${
+                    site.id === CURRENT_SITE_ID
+                      ? "text-white font-medium"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {site.name}
+                </a>
+              ))}
+            </div>
+
             <div className="mt-3 pt-3 border-t border-gray-800">
               <a
                 href="https://harmonic-insight-corporate.vercel.app/#contact"
