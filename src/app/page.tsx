@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-16 pb-32 md:pt-24 md:pb-48">
+      <section className="pt-12 pb-32 md:pt-20 md:pb-48">
         <div className="container max-w-2xl px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
