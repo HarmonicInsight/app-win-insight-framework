@@ -13,7 +13,7 @@ const globalSites = [
   { name: "建設DX", url: "https://const-dx-home.vercel.app/", current: false },
   { name: "Insight Series", url: "https://insight-series-site.vercel.app/", current: false },
   { name: "Apps/Lab", url: "https://h-insight-apps-portal.vercel.app/", current: false },
-  { name: "Dashboard", url: "https://toko-bi.vercel.app/", current: false },
+  { name: "Dashboard", url: "https://app-web-insight-bi.vercel.app/", current: false },
 ];
 
 // ローカルナビゲーション（下段）

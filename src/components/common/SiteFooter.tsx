@@ -41,7 +41,7 @@ const sites = [
   {
     name: "Dashboard",
     description: "ビジネスダッシュボード",
-    url: "https://toko-bi.vercel.app/",
+    url: "https://app-web-insight-bi.vercel.app/",
     icon: LayoutDashboard,
   },
 ];
