@@ -4,19 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  BarChart3,
-  Briefcase,
-  CheckCircle2,
-  ChevronRight,
-  Compass,
-  ExternalLink,
-  GitBranch,
+  Brain,
   Layers,
-  Lightbulb,
-  Target,
-  TrendingUp,
   Users,
-  XCircle,
+  Zap,
+  AlertTriangle,
+  CheckCircle2,
+  Bot,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -25,167 +19,164 @@ const fadeInUp = {
   transition: { duration: 0.5 },
 };
 
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const problems = [
+const challenges = [
   {
-    icon: BarChart3,
-    text: "ダッシュボードを作っても誰も見ない",
+    number: "01",
+    title: "ダッシュボードは見られない",
+    description: "作っても使われない。なぜなら「判断」と繋がっていないから。",
   },
   {
-    icon: Target,
-    text: "KPIを設定しても形骸化する",
+    number: "02",
+    title: "KPIは形骸化する",
+    description: "数字を追うことが目的化し、本来の意思決定に寄与しない。",
   },
   {
-    icon: TrendingUp,
-    text: "数字を追っても経営が良くならない",
+    number: "03",
+    title: "AIツールは浸透しない",
+    description: "便利なはずのAIが使われない。業務設計がAI前提になっていない。",
   },
 ];
 
 const frameworks = [
   {
-    id: "two-phase",
-    icon: GitBranch,
-    title: "2フェーズモデル",
-    description: "目標設定と達成手段を分ける。Phase1で目標を決め、Phase2で手段を選ぶ。",
-    color: "var(--accent-primary)",
-  },
-  {
-    id: "decision-box",
     icon: Layers,
     title: "意思決定Box",
-    description: "すべての判断を構造化する。Purpose、Question、Input、Options、Outputの5要素。",
-    color: "var(--accent-teal)",
+    description: "すべての判断を4要素で構造化。インプット→コンディション→選択肢→アウトプット。",
+    href: "/framework",
   },
   {
-    id: "skill-map",
-    icon: Compass,
-    title: "人材マップ",
-    description: "組織と個人のキャリアを繋げる。3軸構造で能力と役割を可視化する。",
-    color: "var(--accent-purple)",
+    icon: Brain,
+    title: "2フェーズモデル",
+    description: "目標設定と手段選択を分離。Phase1で「何を」、Phase2で「どうやって」。",
+    href: "/framework#two-phase",
+  },
+  {
+    icon: Bot,
+    title: "Pixieフレームワーク",
+    description: "業務を関数化し、人でもAIでも実行可能な形に。差し替え可能な設計。",
+    href: "/pixie",
   },
 ];
 
-const audiences = [
+const menuItems = [
   {
-    icon: Briefcase,
-    title: "経営者",
-    description: "KPIが機能しない理由を知りたい",
+    category: "課題を知る",
+    items: [
+      { name: "なぜKPIは機能しないのか", href: "/challenges/kpi", description: "数字を追っても経営は良くならない理由" },
+      { name: "日本文化と意思決定", href: "/japan-context", description: "欧米型KPIが日本で機能しない構造的要因" },
+      { name: "AI時代の判断とは", href: "/challenges/ai-era", description: "AIが変える意思決定の本質" },
+    ],
   },
   {
-    icon: Users,
-    title: "管理職",
-    description: "チームの意思決定を改善したい",
+    category: "フレームワーク",
+    items: [
+      { name: "意思決定Boxとは", href: "/framework", description: "判断を構造化する4つの要素" },
+      { name: "定義集", href: "/definitions", description: "判断・問題・理想・現実の定義" },
+      { name: "具体例で理解する", href: "/examples", description: "日常から業務まで7つの事例" },
+    ],
   },
   {
-    icon: Lightbulb,
-    title: "コンサルタント",
-    description: "クライアントに使えるフレームワークが欲しい",
+    category: "実装する",
+    items: [
+      { name: "Pixieフレームワーク", href: "/pixie", description: "業務を関数化し再現可能に" },
+      { name: "AI BPO方法論", href: "/ai-bpo", description: "AI前提で業務を作り直す" },
+      { name: "人材マップ", href: "/skill-map", description: "3軸で能力と役割を可視化" },
+    ],
   },
-];
-
-const stats = [
-  { value: "71.3%", label: "正社員の人手不足割合（建設業）" },
-  { value: "3x", label: "意思決定の構造化で生産性向上" },
-  { value: "5", label: "意思決定Boxの構成要素" },
+  {
+    category: "事例・連載",
+    items: [
+      { name: "導入ストーリー", href: "/stories", description: "建設・IT・コンサルの実例" },
+      { name: "note連載", href: "/note", description: "理論と実践の連載記事" },
+      { name: "About", href: "/about", description: "このサイトについて" },
+    ],
+  },
 ];
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-page">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-gradient-hero overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-pattern opacity-50" />
-
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--accent-primary)]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--accent-teal)]/10 rounded-full blur-3xl" />
-
-        <div className="container relative z-10">
+      <section className="py-20 md:py-32">
+        <div className="container">
           <motion.div
             initial="initial"
             animate="animate"
-            variants={stagger}
-            className="max-w-3xl"
+            variants={fadeInUp}
+            className="max-w-4xl"
           >
-            <motion.span
-              variants={fadeInUp}
-              className="section-label"
-            >
-              Insight Framework
-            </motion.span>
-
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] leading-tight mt-4"
-            >
-              意思決定を、
-              <span className="gradient-text">科学する</span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg md:text-xl text-[var(--text-secondary)] mt-6 max-w-2xl leading-relaxed"
-            >
-              KPIが機能しない本当の理由と、
-              <br className="hidden sm:block" />
-              日本に合った意思決定の設計。
-            </motion.p>
-
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap gap-4 mt-8"
-            >
-              <Link href="/framework" className="btn btn-primary">
+            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-4">
+              AI時代の経営インフラ
+            </p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-[var(--text-primary)] leading-tight mb-6">
+              AIは、判断を代替しない。
+              <br />
+              <span className="text-[var(--accent-primary)]">
+                判断の構造を、変える。
+              </span>
+            </h1>
+            <p className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-8">
+              ダッシュボードを作っても見られない。KPIを設定しても形骸化する。
+              <br />
+              原因は「意思決定の構造」にある。
+              <br />
+              AIを導入する前に、判断そのものを設計し直す。
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/framework"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent-primary)] text-white text-sm font-medium hover:bg-[var(--accent-primary-light)] transition-colors"
+              >
                 フレームワークを見る
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/note" className="btn btn-ghost">
-                noteで連載を読む
-                <ExternalLink className="w-4 h-4" />
+              <Link
+                href="/examples"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--border-default)] text-[var(--text-primary)] text-sm font-medium hover:border-[var(--text-primary)] transition-colors"
+              >
+                具体例で理解する
               </Link>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Problem Statement Section */}
-      <section className="section bg-[var(--bg-secondary)]">
+      {/* Problem Section */}
+      <section className="py-16 bg-neutral-100">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="mb-12"
           >
-            <span className="section-label">Problem</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mt-2">
-              こんな経験はありませんか？
+            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-2">
+              PROBLEM
+            </p>
+            <h2 className="text-2xl md:text-3xl font-normal text-[var(--text-primary)]">
+              なぜ、データは判断に活かされないのか
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {problems.map((problem, index) => (
+          <div className="grid md:grid-cols-3 gap-6">
+            {challenges.map((challenge, index) => (
               <motion.div
-                key={index}
+                key={challenge.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card flex items-start gap-4"
+                transition={{ delay: index * 0.1 }}
+                className="bg-white p-6 border-l-2 border-[var(--accent-primary)]"
               >
-                <div className="w-10 h-10 rounded-lg bg-[var(--accent-red)]/10 flex items-center justify-center shrink-0">
-                  <XCircle className="w-5 h-5 text-[var(--accent-red)]" />
-                </div>
-                <p className="text-[var(--text-secondary)]">{problem.text}</p>
+                <span className="text-3xl font-light text-[var(--accent-primary)]">
+                  {challenge.number}
+                </span>
+                <h3 className="text-lg font-medium text-[var(--text-primary)] mt-4 mb-2">
+                  {challenge.title}
+                </h3>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {challenge.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -194,16 +185,16 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12"
+            className="mt-12 p-6 bg-white border border-[var(--border-subtle)]"
           >
-            <div className="card inline-block">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[var(--accent-green)]" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="w-6 h-6 text-[var(--accent-primary)] shrink-0 mt-1" />
+              <div>
                 <p className="text-[var(--text-primary)] font-medium">
-                  原因はKPI設計ではなく、
-                  <span className="text-[var(--accent-primary)]">意思決定の構造</span>
-                  にある
+                  解決策は、KPI設計の改善ではない
+                </p>
+                <p className="text-sm text-[var(--text-secondary)] mt-1">
+                  「意思決定の構造」そのものを設計し直すことで、データは初めて判断に繋がる。
                 </p>
               </div>
             </div>
@@ -211,24 +202,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Framework Overview Section */}
-      <section className="section">
+      {/* Framework Section */}
+      <section className="py-16">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="mb-12"
           >
-            <span className="section-label">Framework</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mt-2">
-              3つの構成要素
-            </h2>
-            <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
-              Insight Frameworkは、意思決定を科学的に構造化する
-              3つのモデルから構成されています。
+            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-2">
+              FRAMEWORK
             </p>
+            <h2 className="text-2xl md:text-3xl font-normal text-[var(--text-primary)]">
+              意思決定を構造化する
+            </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -236,30 +224,21 @@ export default function HomePage() {
               const Icon = framework.icon;
               return (
                 <motion.div
-                  key={framework.id}
+                  key={framework.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    href={`/framework#${framework.id}`}
-                    className="card block h-full group"
+                    href={framework.href}
+                    className="block p-6 border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-colors group h-full"
                   >
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: `${framework.color}15` }}
-                    >
-                      <Icon
-                        className="w-6 h-6"
-                        style={{ color: framework.color }}
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2 flex items-center gap-2">
+                    <Icon className="w-8 h-8 text-[var(--accent-primary)] mb-4" />
+                    <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-primary)] transition-colors">
                       {framework.title}
-                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--accent-primary)]" />
                     </h3>
-                    <p className="text-[var(--text-secondary)]">
+                    <p className="text-sm text-[var(--text-secondary)]">
                       {framework.description}
                     </p>
                   </Link>
@@ -270,97 +249,83 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="section bg-[var(--bg-secondary)]">
+      {/* Menu Section - All Pages */}
+      <section className="py-16 bg-neutral-900 text-white">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <p className="text-sm text-neutral-400 tracking-wider mb-2">
+              CONTENTS
+            </p>
+            <h2 className="text-2xl md:text-3xl font-normal">
+              コンテンツ一覧
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {menuItems.map((category, catIndex) => (
               <motion.div
-                key={index}
+                key={category.category}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ delay: catIndex * 0.1 }}
               >
-                <div className="stat-number">{stat.value}</div>
-                <div className="stat-label mt-2">{stat.label}</div>
+                <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4 pb-2 border-b border-neutral-700">
+                  {category.category}
+                </h3>
+                <ul className="space-y-4">
+                  {category.items.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="group block"
+                      >
+                        <span className="text-white group-hover:text-[var(--accent-primary)] transition-colors">
+                          {item.name}
+                        </span>
+                        <span className="block text-sm text-neutral-500 mt-0.5">
+                          {item.description}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Target Audience Section */}
-      <section className="section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <span className="section-label">Who is this for?</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mt-2">
-              こんな方に
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {audiences.map((audience, index) => {
-              const Icon = audience.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="card text-center"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[var(--accent-primary)]/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-[var(--accent-primary)]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">
-                    {audience.title}
-                  </h3>
-                  <p className="text-sm text-[var(--text-muted)]">
-                    {audience.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="section bg-[var(--bg-secondary)]">
+      <section className="py-16">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
-              意思決定の構造を、見える化する
+            <h2 className="text-2xl md:text-3xl font-normal text-[var(--text-primary)] mb-4">
+              AIを導入する前に、
+              <br />
+              判断を設計する。
             </h2>
-            <p className="text-[var(--text-muted)] mt-4">
-              Insight Frameworkで、あなたの組織の意思決定を科学的に分析し、
-              改善のための具体的なアクションを見つけましょう。
+            <p className="text-[var(--text-secondary)] mb-8">
+              意思決定の構造を理解することで、AIは初めて本当の力を発揮します。
+              まずはフレームワークを確認してください。
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <Link href="/framework" className="btn btn-primary">
-                フレームワークを見る
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/stories" className="btn btn-ghost">
-                事例を見る
-              </Link>
-            </div>
+            <Link
+              href="/framework"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--accent-primary)] text-white font-medium hover:bg-[var(--accent-primary-light)] transition-colors"
+            >
+              フレームワークを見る
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>

@@ -16,19 +16,44 @@ const globalSites = [
   { name: "Insight BI", url: "https://app-web-insight-bi.vercel.app/" },
 ];
 
-// ローカルナビゲーション
-const navLinks = [
-  { name: "フレームワーク", href: "/framework" },
-  { name: "定義集", href: "/definitions" },
-  { name: "具体例", href: "/examples" },
-  { name: "Pixie", href: "/pixie" },
-  { name: "AI BPO", href: "/ai-bpo" },
-  { name: "日本文化×KPI", href: "/japan-context" },
-  { name: "ストーリー", href: "/stories" },
-  { name: "人材マップ", href: "/skill-map" },
-  { name: "note連載", href: "/note" },
-  { name: "About", href: "/about" },
+// メニュー構造（カテゴリ別）
+const menuCategories = [
+  {
+    title: "課題を知る",
+    links: [
+      { name: "なぜKPIは機能しないのか", href: "/challenges/kpi" },
+      { name: "日本文化と意思決定", href: "/japan-context" },
+      { name: "AI時代の判断とは", href: "/challenges/ai-era" },
+    ],
+  },
+  {
+    title: "フレームワーク",
+    links: [
+      { name: "意思決定Boxとは", href: "/framework" },
+      { name: "定義集", href: "/definitions" },
+      { name: "具体例で理解する", href: "/examples" },
+    ],
+  },
+  {
+    title: "実装する",
+    links: [
+      { name: "Pixieフレームワーク", href: "/pixie" },
+      { name: "AI BPO方法論", href: "/ai-bpo" },
+      { name: "人材マップ", href: "/skill-map" },
+    ],
+  },
+  {
+    title: "事例・連載",
+    links: [
+      { name: "導入ストーリー", href: "/stories" },
+      { name: "note連載", href: "/note" },
+      { name: "About", href: "/about" },
+    ],
+  },
 ];
+
+// フラットなリンクリスト
+const allLinks = menuCategories.flatMap((cat) => cat.links);
 
 export function SiteNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +75,7 @@ export function SiteNavigation() {
   return (
     <>
       {/* Global Sites Bar - 上段ダークバー */}
-      <div className="bg-neutral-900 text-white text-sm">
+      <div className="bg-neutral-900 text-sm">
         <div className="container">
           <div className="flex items-center justify-between h-10">
             {/* Left: Site Links */}
@@ -83,34 +108,34 @@ export function SiteNavigation() {
         </div>
       </div>
 
-      {/* Main Header - 下段メインヘッダー（建設DXスタイル） */}
+      {/* Main Header - 下段メインヘッダー */}
       <header
         className={`sticky top-0 z-50 bg-[var(--bg-primary)] transition-shadow duration-300 ${
-          isScrolled ? "shadow-sm" : ""
+          isScrolled ? "shadow-sm border-b border-[var(--border-subtle)]" : ""
         }`}
       >
         <div className="container">
           <div className="flex items-center justify-between h-16">
             {/* Site Name */}
-            <Link
-              href="/"
-              className="text-2xl font-normal text-[var(--text-primary)] tracking-wide"
-            >
-              Insight Framework
+            <Link href="/" className="group">
+              <span className="text-xl md:text-2xl font-normal text-[var(--text-primary)] tracking-wide">
+                AI時代の意思決定
+              </span>
             </Link>
 
-            {/* Right Side: JP/EN style toggle (placeholder) + Menu */}
+            {/* Right Side */}
             <div className="flex items-center gap-4">
               {/* Hamburger Menu */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 aria-label="メニュー"
               >
+                <span className="text-sm hidden sm:inline">メニュー</span>
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-5 h-5" />
                 )}
               </button>
             </div>
@@ -118,7 +143,7 @@ export function SiteNavigation() {
         </div>
       </header>
 
-      {/* Mobile/Desktop Menu Overlay */}
+      {/* Menu Overlay - 建設DXスタイル */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -140,30 +165,40 @@ export function SiteNavigation() {
               transition={{ duration: 0.2 }}
               className="absolute left-0 right-0 top-0 bg-[var(--bg-primary)] border-b border-[var(--border-subtle)] shadow-lg"
             >
-              <div className="container py-6">
-                {/* Navigation Links - 2 columns on larger screens */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-1">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`py-3 text-sm transition-colors border-b border-transparent hover:border-[var(--accent-primary)] ${
-                        pathname === link.href
-                          ? "text-[var(--accent-primary)]"
-                          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+              <div className="container py-8">
+                {/* Category Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                  {menuCategories.map((category) => (
+                    <div key={category.title}>
+                      <h3 className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider mb-4">
+                        {category.title}
+                      </h3>
+                      <ul className="space-y-1">
+                        {category.links.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              className={`block py-2 text-sm transition-colors border-l-2 pl-3 ${
+                                pathname === link.href
+                                  ? "text-[var(--accent-primary)] border-[var(--accent-primary)]"
+                                  : "text-[var(--text-secondary)] border-transparent hover:text-[var(--text-primary)] hover:border-[var(--border-default)]"
+                              }`}
+                            >
+                              {link.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
                 </div>
 
                 {/* Global Sites for Mobile */}
-                <div className="mt-6 pt-6 border-t border-[var(--border-subtle)] md:hidden">
+                <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] md:hidden">
                   <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3">
                     関連サイト
                   </p>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-4">
                     {globalSites.slice(1).map((site) => (
                       <a
                         key={site.name}
