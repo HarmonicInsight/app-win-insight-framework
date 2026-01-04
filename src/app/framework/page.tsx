@@ -11,7 +11,7 @@ export default function FrameworkPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="pt-24 pb-20 md:pt-32 md:pb-28">
+      <section className="pt-16 pb-20 md:pt-24 md:pb-28">
         <div className="container max-w-2xl px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
