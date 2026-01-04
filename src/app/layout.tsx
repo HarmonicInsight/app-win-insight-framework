@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SiteNavigation } from "@/components/common/SiteNavigation";
-import { SiteFooter } from "@/components/common/SiteFooter";
+import { GlobalNav } from "@/components/GlobalNav";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
@@ -53,8 +53,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <SiteNavigation />
-        <main>{children}</main>
+        <GlobalNav />
+        <main className="pt-10">{children}</main>
         <SiteFooter />
       </body>
     </html>
