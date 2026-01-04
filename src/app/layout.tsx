@@ -5,36 +5,20 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
-    default: "Insight Framework | 意思決定を、科学する",
-    template: "%s | Insight Framework",
+    default: "AI意思決定 | 判断の構造を、変える",
+    template: "%s | AI意思決定",
   },
   description:
-    "KPIが機能しない本当の理由と、日本に合った意思決定の設計。2フェーズモデル、意思決定Box、人材マップで組織の意思決定を構造化する。",
+    "AIは判断を代替しない。判断の構造を変える。KPIが機能しない本当の理由と、意思決定の設計方法。",
   keywords: [
     "意思決定",
     "KPI",
     "フレームワーク",
+    "AI",
     "経営",
-    "マネジメント",
-    "組織設計",
     "Harmonic Insight",
   ],
   authors: [{ name: "Harmonic Insight" }],
-  openGraph: {
-    type: "website",
-    locale: "ja_JP",
-    url: "https://insight-framework.vercel.app",
-    siteName: "Insight Framework",
-    title: "Insight Framework | 意思決定を、科学する",
-    description:
-      "KPIが機能しない本当の理由と、日本に合った意思決定の設計。",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Insight Framework | 意思決定を、科学する",
-    description:
-      "KPIが機能しない本当の理由と、日本に合った意思決定の設計。",
-  },
 };
 
 export default function RootLayout({
@@ -52,9 +36,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-white text-gray-900">
         <GlobalNav />
-        <main className="pt-24 md:pt-28">{children}</main>
+        <main>{children}</main>
         <SiteFooter />
       </body>
     </html>

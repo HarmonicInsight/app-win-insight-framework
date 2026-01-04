@@ -8,7 +8,7 @@ export function GlobalNav() {
   const sites = SITES.filter((s) => s.showInGlobalNav).sort((a, b) => a.order - b.order);
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white z-[60]">
+    <header className="sticky top-0 left-0 right-0 bg-gray-900 text-white z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-10 text-xs">
           {/* Left: Brand + Nav */}
@@ -93,7 +93,7 @@ export function GlobalNav() {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 }
 
