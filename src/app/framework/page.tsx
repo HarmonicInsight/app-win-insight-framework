@@ -11,16 +11,16 @@ export default function FrameworkPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="pt-12 pb-20 md:pt-16 md:pb-28">
-        <div className="container max-w-2xl px-8">
+      <section className="py-16 md:py-24">
+        <div className="container max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p className="text-xs text-[var(--accent-primary)] tracking-[0.3em] mb-12">
+            <p className="text-xs text-[var(--accent-primary)] tracking-[0.3em] mb-6">
               FRAMEWORK
             </p>
-            <h1 className="text-xl md:text-2xl font-normal text-[var(--text-primary)] leading-[2] mb-12">
+            <h1 className="text-xl md:text-2xl font-normal text-[var(--text-primary)] leading-[2] mb-6">
               意思決定の構造を理解する
             </h1>
             <p className="text-sm text-[var(--text-secondary)] leading-[2.2]">
@@ -33,35 +33,35 @@ export default function FrameworkPage() {
       </section>
 
       {/* 2フェーズモデル */}
-      <section className="py-20 md:py-28 bg-neutral-50">
-        <div className="container max-w-2xl px-8">
-          <h2 className="text-lg font-normal text-[var(--text-primary)] mb-8">
+      <section className="py-16 md:py-24 bg-[var(--gray-100)]">
+        <div className="container max-w-2xl">
+          <h2 className="text-lg font-normal text-[var(--text-primary)] mb-6">
             2フェーズモデル
           </h2>
-          <p className="text-sm text-[var(--text-secondary)] leading-[2.2] mb-16">
+          <p className="text-sm text-[var(--text-secondary)] leading-[2.2] mb-10">
             目標設定と手段選択を分離することで、
             <br />
             意思決定の質を向上させます。
           </p>
 
           {/* Phase Toggle */}
-          <div className="flex gap-4 mb-16">
+          <div className="flex gap-4 mb-10">
             <button
               onClick={() => setActivePhase(1)}
-              className={`px-6 py-4 text-sm transition-all ${
+              className={`px-6 py-3 text-sm transition-all ${
                 activePhase === 1
                   ? "bg-[var(--accent-primary)] text-white"
-                  : "bg-white text-[var(--text-secondary)] border border-neutral-200"
+                  : "bg-white text-[var(--text-secondary)] border border-[var(--border-subtle)]"
               }`}
             >
               Phase 1
             </button>
             <button
               onClick={() => setActivePhase(2)}
-              className={`px-6 py-4 text-sm transition-all ${
+              className={`px-6 py-3 text-sm transition-all ${
                 activePhase === 2
                   ? "bg-teal-600 text-white"
-                  : "bg-white text-[var(--text-secondary)] border border-neutral-200"
+                  : "bg-white text-[var(--text-secondary)] border border-[var(--border-subtle)]"
               }`}
             >
               Phase 2
@@ -77,12 +77,12 @@ export default function FrameworkPage() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="flex items-center gap-6 mb-12">
-                  <div className="w-14 h-14 rounded-full bg-[var(--accent-primary)]/10 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-[var(--accent-primary)]" />
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent-primary)]/10 flex items-center justify-center">
+                    <Target className="w-5 h-5 text-[var(--accent-primary)]" />
                   </div>
                   <div>
-                    <h3 className="text-base font-normal text-[var(--text-primary)] mb-2">
+                    <h3 className="text-base font-normal text-[var(--text-primary)]">
                       目標設定
                     </h3>
                     <p className="text-sm text-[var(--text-muted)]">
@@ -91,7 +91,7 @@ export default function FrameworkPage() {
                   </div>
                 </div>
 
-                <ul className="space-y-8 text-sm text-[var(--text-secondary)] leading-[2]">
+                <ul className="space-y-5 text-sm text-[var(--text-secondary)] leading-[2]">
                   <li>ビジョン・ミッションの定義</li>
                   <li>戦略目標の設定</li>
                   <li>KGI（重要目標達成指標）の決定</li>
@@ -105,12 +105,12 @@ export default function FrameworkPage() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="flex items-center gap-6 mb-12">
-                  <div className="w-14 h-14 rounded-full bg-teal-600/10 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-teal-600" />
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="w-12 h-12 rounded-full bg-teal-600/10 flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="text-base font-normal text-[var(--text-primary)] mb-2">
+                    <h3 className="text-base font-normal text-[var(--text-primary)]">
                       手段選択
                     </h3>
                     <p className="text-sm text-[var(--text-muted)]">
@@ -119,7 +119,7 @@ export default function FrameworkPage() {
                   </div>
                 </div>
 
-                <ul className="space-y-8 text-sm text-[var(--text-secondary)] leading-[2]">
+                <ul className="space-y-5 text-sm text-[var(--text-secondary)] leading-[2]">
                   <li>施策の洗い出し</li>
                   <li>リソース配分の決定</li>
                   <li>KPI設定</li>
@@ -132,16 +132,16 @@ export default function FrameworkPage() {
       </section>
 
       {/* 意思決定Box */}
-      <section className="py-20 md:py-28">
-        <div className="container max-w-2xl px-8">
-          <h2 className="text-lg font-normal text-[var(--text-primary)] mb-8">
+      <section className="py-16 md:py-24">
+        <div className="container max-w-2xl">
+          <h2 className="text-lg font-normal text-[var(--text-primary)] mb-6">
             意思決定Box
           </h2>
-          <p className="text-sm text-[var(--text-secondary)] leading-[2.2] mb-16">
+          <p className="text-sm text-[var(--text-secondary)] leading-[2.2] mb-10">
             すべての意思決定を5つの要素で構造化。
           </p>
 
-          <ul className="space-y-10">
+          <ul className="space-y-6">
             {[
               { label: "Purpose", desc: "何のための意思決定か" },
               { label: "Question", desc: "具体的に何を決めるか" },
@@ -149,7 +149,7 @@ export default function FrameworkPage() {
               { label: "Options", desc: "選択肢は何か" },
               { label: "Output", desc: "決定内容と次のアクション" },
             ].map((item) => (
-              <li key={item.label} className="flex items-start gap-8">
+              <li key={item.label} className="flex items-start gap-6">
                 <span className="text-sm text-[var(--accent-primary)] w-20 shrink-0">
                   {item.label}
                 </span>
@@ -163,14 +163,14 @@ export default function FrameworkPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-neutral-50">
-        <div className="container max-w-2xl px-8 text-center">
-          <p className="text-base text-[var(--text-primary)] mb-12">
+      <section className="py-16 md:py-24 bg-[var(--gray-100)]">
+        <div className="container max-w-2xl text-center">
+          <p className="text-base text-[var(--text-primary)] mb-8">
             実際の事例で理解を深める
           </p>
           <Link
             href="/examples"
-            className="inline-flex items-center gap-3 px-8 py-5 bg-[var(--accent-primary)] text-white text-sm tracking-wide"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--accent-primary)] text-white text-sm tracking-wide"
           >
             事例を見る
             <ArrowRight className="w-4 h-4" />

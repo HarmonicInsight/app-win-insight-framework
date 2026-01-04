@@ -54,7 +54,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <GlobalNav />
-        <main className="mt-10">{children}</main>
+        <main className="pt-24 md:pt-28">{children}</main>
         <SiteFooter />
       </body>
     </html>
