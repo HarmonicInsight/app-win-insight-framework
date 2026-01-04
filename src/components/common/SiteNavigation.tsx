@@ -58,6 +58,10 @@ const sites = [
 
 const navLinks = [
   { name: "フレームワーク", href: "/framework" },
+  { name: "定義集", href: "/definitions" },
+  { name: "具体例", href: "/examples" },
+  { name: "Pixie", href: "/pixie" },
+  { name: "AI BPO", href: "/ai-bpo" },
   { name: "日本文化×KPI", href: "/japan-context" },
   { name: "ストーリー", href: "/stories" },
   { name: "人材マップ", href: "/skill-map" },

@@ -48,12 +48,21 @@ const sites = [
 
 const footerLinks = [
   {
-    title: "コンテンツ",
+    title: "基礎",
     links: [
       { name: "フレームワーク", href: "/framework" },
+      { name: "定義集", href: "/definitions" },
+      { name: "具体例", href: "/examples" },
       { name: "日本文化×KPI", href: "/japan-context" },
-      { name: "ストーリー", href: "/stories" },
+    ],
+  },
+  {
+    title: "応用",
+    links: [
+      { name: "Pixie", href: "/pixie" },
+      { name: "AI BPO", href: "/ai-bpo" },
       { name: "人材マップ", href: "/skill-map" },
+      { name: "ストーリー", href: "/stories" },
     ],
   },
   {
@@ -107,7 +116,7 @@ export function SiteFooter() {
       {/* Main Footer */}
       <div className="border-t border-[var(--border-subtle)]">
         <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
             {/* Brand */}
             <div className="md:col-span-2">
               <Link href="/" className="flex items-center gap-2 mb-4">
