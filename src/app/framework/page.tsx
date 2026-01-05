@@ -1,13 +1,50 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Target, Zap } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
+
+const boxElements = [
+  {
+    id: "purpose",
+    label: "Purpose",
+    question: "何のための意思決定か",
+    description: "この判断が組織にもたらす価値・目的を明確にする",
+    color: "amber",
+  },
+  {
+    id: "question",
+    label: "Question",
+    question: "具体的に何を決めるか",
+    description: "Yes/Noまたは選択肢から選ぶ形で問いを設計する",
+    color: "amber",
+  },
+  {
+    id: "input",
+    label: "Input",
+    question: "判断に必要な情報",
+    description: "データ、ファクト、レポートなど判断材料を列挙する",
+    color: "teal",
+    aiReplaceable: true,
+  },
+  {
+    id: "options",
+    label: "Options",
+    question: "選択肢は何か",
+    description: "取りうる選択肢とそれぞれのメリット・デメリット",
+    color: "teal",
+    aiReplaceable: true,
+  },
+  {
+    id: "output",
+    label: "Output",
+    question: "決定内容と次のアクション",
+    description: "決定事項、理由、そして次に誰が何をするか",
+    color: "amber",
+  },
+];
 
 export default function FrameworkPage() {
-  const [activePhase, setActivePhase] = useState<1 | 2>(1);
-
   return (
     <div>
       {/* Hero */}
@@ -24,138 +61,152 @@ export default function FrameworkPage() {
               意思決定の構造を理解する
             </h1>
             <p className="text-base text-gray-600 leading-loose">
-              組織の意思決定を科学的に分析し、
+              組織の意思決定を5つの要素で構造化し、
               <br />
-              改善するためのフレームワーク。
+              AIで代替できる部分と人が判断すべき部分を明確にする。
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 2フェーズモデル */}
+      {/* 意思決定Boxとは */}
       <section className="px-6 py-20 md:py-28 bg-gray-50">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-xl md:text-2xl text-gray-900 mb-6">
-            2フェーズモデル
-          </h2>
-          <p className="text-base text-gray-600 leading-loose mb-12">
-            目標設定と手段選択を分離することで、
-            <br />
-            意思決定の質を向上させます。
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl md:text-2xl text-gray-900 mb-6">
+              意思決定Box
+            </h2>
+            <p className="text-base text-gray-600 leading-loose mb-8">
+              すべての意思決定は、この5つの要素で構造化できます。
+              <br />
+              重要なのは、どの要素をAIに任せ、どの要素を人が担うかを設計すること。
+            </p>
 
-          {/* Phase Toggle */}
-          <div className="flex gap-4 mb-12">
-            <button
-              onClick={() => setActivePhase(1)}
-              className={`px-6 py-3 text-base transition-colors ${
-                activePhase === 1
-                  ? "bg-amber-700 text-white"
-                  : "bg-white text-gray-600 border border-gray-200"
-              }`}
-            >
-              Phase 1
-            </button>
-            <button
-              onClick={() => setActivePhase(2)}
-              className={`px-6 py-3 text-base transition-colors ${
-                activePhase === 2
-                  ? "bg-teal-600 text-white"
-                  : "bg-white text-gray-600 border border-gray-200"
-              }`}
-            >
-              Phase 2
-            </button>
-          </div>
-
-          {/* Phase Content */}
-          <AnimatePresence mode="wait">
-            {activePhase === 1 ? (
-              <motion.div
-                key="phase1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <div className="flex items-center gap-5 mb-10">
-                  <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-amber-700" />
-                  </div>
-                  <div>
-                    <p className="text-lg text-gray-900">目標設定</p>
-                    <p className="text-base text-gray-500">何を達成するか</p>
-                  </div>
-                </div>
-
-                <ul className="space-y-5 text-base text-gray-600">
-                  <li>ビジョン・ミッションの定義</li>
-                  <li>戦略目標の設定</li>
-                  <li>KGI（重要目標達成指標）の決定</li>
-                  <li>優先順位の明確化</li>
-                </ul>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="phase2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <div className="flex items-center gap-5 mb-10">
-                  <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-teal-600" />
-                  </div>
-                  <div>
-                    <p className="text-lg text-gray-900">手段選択</p>
-                    <p className="text-base text-gray-500">どう達成するか</p>
-                  </div>
-                </div>
-
-                <ul className="space-y-5 text-base text-gray-600">
-                  <li>施策の洗い出し</li>
-                  <li>リソース配分の決定</li>
-                  <li>KPI設定</li>
-                  <li>実行計画の策定</li>
-                </ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            <div className="bg-amber-50 p-6 border-l-4 border-amber-700">
+              <p className="text-base text-gray-900 leading-relaxed">
+                <span className="font-medium">Input</span>（情報収集）と
+                <span className="font-medium"> Options</span>（選択肢の整理）は
+                <span className="text-amber-700 font-medium"> AIで代替可能</span>。
+                <br />
+                人は<span className="font-medium"> Purpose</span>（目的の設定）と
+                <span className="font-medium"> Output</span>（最終判断）に集中する。
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 意思決定Box */}
+      {/* 5つの要素（構造図） */}
       <section className="px-6 py-20 md:py-28">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-xl md:text-2xl text-gray-900 mb-6">
-            意思決定Box
-          </h2>
-          <p className="text-base text-gray-600 leading-loose mb-12">
-            すべての意思決定を5つの要素で構造化。
-          </p>
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl md:text-2xl text-gray-900 mb-12">
+              5つの要素
+            </h2>
 
-          <div className="space-y-8">
-            {[
-              { label: "Purpose", desc: "何のための意思決定か" },
-              { label: "Question", desc: "具体的に何を決めるか" },
-              { label: "Input", desc: "判断に必要な情報" },
-              { label: "Options", desc: "選択肢は何か" },
-              { label: "Output", desc: "決定内容と次のアクション" },
-            ].map((item) => (
-              <div key={item.label} className="flex gap-8">
-                <span className="text-base text-amber-700 w-24 shrink-0 font-medium">
-                  {item.label}
-                </span>
-                <span className="text-base text-gray-600">
-                  {item.desc}
-                </span>
+            <div className="space-y-4">
+              {boxElements.map((element, index) => (
+                <div key={element.id}>
+                  <div
+                    className={`p-6 border ${
+                      element.aiReplaceable
+                        ? "bg-teal-50 border-teal-200"
+                        : "bg-white border-gray-200"
+                    }`}
+                  >
+                    <div className="flex items-start gap-6">
+                      <div className="shrink-0">
+                        <span
+                          className={`text-sm font-medium tracking-widest ${
+                            element.aiReplaceable
+                              ? "text-teal-600"
+                              : "text-amber-700"
+                          }`}
+                        >
+                          {element.label}
+                        </span>
+                        {element.aiReplaceable && (
+                          <span className="block text-xs text-teal-600 mt-1">
+                            AI代替可能
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-medium text-gray-900 mb-2">
+                          {element.question}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {element.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {index < boxElements.length - 1 && (
+                    <div className="flex justify-center py-2">
+                      <ArrowDown className="w-5 h-5 text-gray-300" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 人が判断すべきこと */}
+      <section className="px-6 py-20 md:py-28 bg-gray-900 text-white">
+        <div className="max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl md:text-2xl mb-10">
+              人が判断すべきこと
+            </h2>
+
+            <div className="space-y-8">
+              <div>
+                <p className="text-amber-500 font-medium mb-2">Purpose（目的）</p>
+                <p className="text-gray-300 leading-relaxed">
+                  なぜこの判断をするのか、組織にとってどんな価値があるのか。
+                  <br />
+                  AIには「なぜ」を設定することはできない。
+                </p>
               </div>
-            ))}
-          </div>
+
+              <div>
+                <p className="text-amber-500 font-medium mb-2">Output（決定）</p>
+                <p className="text-gray-300 leading-relaxed">
+                  最終的に何を選ぶか、その責任を誰が負うか。
+                  <br />
+                  AIは選択肢を提示できるが、決定の責任は人にある。
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-gray-700">
+              <p className="text-gray-400 text-base leading-relaxed">
+                AIは「情報を集める」「選択肢を整理する」ことに長けている。
+                <br />
+                人は「目的を定める」「最終決定を下す」ことに専念すべき。
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-20 md:py-28 bg-gray-50">
+      <section className="px-6 py-20 md:py-28">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-gray-900 mb-10">
             実際の事例で理解を深める

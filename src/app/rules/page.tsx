@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowDown, FileText, Calculator, CreditCard, ClipboardCheck, Scale, BookOpen } from "lucide-react";
+import { ArrowRight, XCircle, CheckCircle2, Bot, User } from "lucide-react";
 
 export default function RulesPage() {
   return (
@@ -20,21 +20,17 @@ export default function RulesPage() {
             </p>
 
             <h1 className="text-2xl md:text-3xl text-gray-900 leading-relaxed mb-8">
-              書いたら動く。
+              プロセスをシステム化しても、
               <br />
-              <span className="text-amber-700">でも、嘘はつかない。</span>
+              <span className="text-amber-700">効率化はできない。</span>
             </h1>
 
-            <p className="text-base text-gray-600 leading-loose mb-8">
-              人が意図を書き、
+            <p className="text-base text-gray-600 leading-loose">
+              今のワークフローをそのままシステム化しても意味がない。
               <br />
-              AIが翻訳し、
+              業務を「判断」として再設計し、
               <br />
-              テストが保証する。
-            </p>
-
-            <p className="text-sm text-gray-400 tracking-widest">
-              Intent → Translate → Verify
+              AIに任せる部分を明確にする。
             </p>
           </motion.div>
         </div>
@@ -49,194 +45,172 @@ export default function RulesPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-xl md:text-2xl text-gray-900 mb-10">
-              なぜ「自動化」は失敗し続けるのか
+              なぜ「効率化」は失敗するのか
             </h2>
 
-            <ul className="space-y-5 text-base text-gray-600 mb-12">
-              <li>ローコードは複雑になると止まる</li>
-              <li>RPAは「意味」を理解していない</li>
-              <li>ワークフローは例外で破綻する</li>
-            </ul>
-
-            <p className="text-base text-gray-900 border-l-2 border-amber-700 pl-6">
-              共通点：「人の意図」が、どこにも残らない
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 既存概念との比較 */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xl md:text-2xl text-gray-900 mb-10">
-              これは、既存の延長ではありません
-            </h2>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-base">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-4 pr-6 text-gray-500 font-normal">アプローチ</th>
-                    <th className="text-left py-4 pr-6 text-gray-500 font-normal">仕組み</th>
-                    <th className="text-left py-4 text-gray-500 font-normal">限界</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-600">
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 pr-6">ローコード</td>
-                    <td className="py-4 pr-6">GUIで設定 → 実行</td>
-                    <td className="py-4">複雑な判断は表現できない</td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 pr-6">RPA</td>
-                    <td className="py-4 pr-6">操作を記録 → 再生</td>
-                    <td className="py-4">ルールの意味を理解していない</td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 pr-6">BPM</td>
-                    <td className="py-4 pr-6">フローを定義 → 実行</td>
-                    <td className="py-4">条件が増えると破綻</td>
-                  </tr>
-                  <tr className="bg-amber-50">
-                    <td className="py-4 pr-6 text-amber-700 font-medium">IAR</td>
-                    <td className="py-4 pr-6">意図 → AI翻訳 → 検証 → 実行</td>
-                    <td className="py-4 text-amber-700">検証済みのみ動く</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ITV Development */}
-      <section className="px-6 py-20 md:py-28 bg-gray-50">
-        <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xl md:text-2xl text-gray-900 mb-4">
-              ITV Development
-            </h2>
-            <p className="text-base text-gray-500 mb-14">
-              Intent / Translate / Verify
-            </p>
-
-            {/* Flow */}
-            <div className="space-y-6">
-              <div className="bg-white p-8 border border-gray-200">
-                <p className="text-sm text-amber-700 tracking-widest mb-3">INTENT</p>
-                <p className="text-base text-gray-900">人が自然言語で「意図」を書く</p>
+            <div className="space-y-6 mb-12">
+              <div className="flex items-start gap-4">
+                <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-1" />
+                <p className="text-base text-gray-600">
+                  <span className="font-medium text-gray-900">プロセスをそのままシステム化</span>
+                  <br />
+                  紙の稟議をデジタル化しても、承認待ちの時間は変わらない
+                </p>
               </div>
-
-              <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-gray-300" />
+              <div className="flex items-start gap-4">
+                <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-1" />
+                <p className="text-base text-gray-600">
+                  <span className="font-medium text-gray-900">人の作業をRPAで自動化</span>
+                  <br />
+                  操作を記録しても、判断のロジックは自動化されない
+                </p>
               </div>
-
-              <div className="bg-white p-8 border border-gray-200">
-                <p className="text-sm text-teal-600 tracking-widest mb-3">TRANSLATE</p>
-                <p className="text-base text-gray-900">AIがルール・コードに翻訳</p>
-              </div>
-
-              <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-gray-300" />
-              </div>
-
-              <div className="bg-white p-8 border border-gray-200">
-                <p className="text-sm text-blue-600 tracking-widest mb-3">VERIFY</p>
-                <p className="text-base text-gray-900">テストで挙動を検証</p>
-              </div>
-
-              <div className="flex justify-center">
-                <ArrowDown className="w-6 h-6 text-gray-300" />
-              </div>
-
-              <div className="bg-amber-50 p-8 border border-amber-200">
-                <p className="text-sm text-amber-700 tracking-widest mb-3">EXECUTE</p>
-                <p className="text-base text-gray-900">合格したものだけが動く</p>
+              <div className="flex items-start gap-4">
+                <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-1" />
+                <p className="text-base text-gray-600">
+                  <span className="font-medium text-gray-900">ワークフローを電子化</span>
+                  <br />
+                  承認者が増えるほど、ボトルネックも増える
+                </p>
               </div>
             </div>
 
-            <p className="text-base text-gray-900 mt-14 border-l-2 border-amber-700 pl-6">
-              AIが賢いから動かすのではない。
-              <br />
-              検証されたから動かす。
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 核となる思想 */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-xl md:text-2xl text-gray-900 mb-10">
-              AIに「正解」を任せない
-            </h2>
-
-            <ul className="space-y-5 text-base text-gray-600 mb-14">
-              <li>AIは考えるが、決めない</li>
-              <li>AIは書くが、保証しない</li>
-              <li>保証するのはテスト</li>
-            </ul>
-
-            <div className="bg-gray-50 p-10">
-              <p className="text-lg text-gray-900 leading-relaxed">
-                Automatic なのは「翻訳と検証」であり、
+            <div className="bg-white p-6 border-l-4 border-amber-700">
+              <p className="text-base text-gray-900 leading-relaxed">
+                共通の問題：<span className="font-medium">「人＝作業者」</span>として業務を設計している。
                 <br />
-                <span className="text-amber-700">判断の責任は人の意図にある。</span>
+                本当の問いは「人は何を<span className="text-amber-700 font-medium">判断</span>すべきか」である。
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 適用領域 */}
-      <section className="px-6 py-20 md:py-28 bg-gray-50">
+      {/* 業務の再設計 */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl md:text-2xl text-gray-900 mb-6">
+              業務を「判断」として再設計する
+            </h2>
+            <p className="text-base text-gray-600 leading-loose mb-12">
+              意思決定Boxの5要素のうち、
+              <span className="font-medium">Input</span>と
+              <span className="font-medium">Options</span>は
+              <span className="text-teal-600 font-medium">AIで完全に代替できる</span>。
+            </p>
+
+            <div className="space-y-6">
+              {/* Input */}
+              <div className="bg-teal-50 p-6 border border-teal-200">
+                <div className="flex items-center gap-3 mb-3">
+                  <Bot className="w-5 h-5 text-teal-600" />
+                  <span className="text-sm text-teal-600 font-medium tracking-widest">INPUT</span>
+                  <span className="text-xs bg-teal-600 text-white px-2 py-0.5">人は不要</span>
+                </div>
+                <p className="text-base text-gray-900 font-medium mb-2">
+                  判断に必要な情報を集める
+                </p>
+                <p className="text-sm text-gray-600">
+                  データの収集、レポートの作成、情報の整理。
+                  AIは人間の何倍もの速度で、より正確に情報を集められる。
+                </p>
+              </div>
+
+              {/* Options */}
+              <div className="bg-teal-50 p-6 border border-teal-200">
+                <div className="flex items-center gap-3 mb-3">
+                  <Bot className="w-5 h-5 text-teal-600" />
+                  <span className="text-sm text-teal-600 font-medium tracking-widest">OPTIONS</span>
+                  <span className="text-xs bg-teal-600 text-white px-2 py-0.5">人は不要</span>
+                </div>
+                <p className="text-base text-gray-900 font-medium mb-2">
+                  選択肢を整理し、比較する
+                </p>
+                <p className="text-sm text-gray-600">
+                  選択肢の洗い出し、メリット・デメリットの整理、比較表の作成。
+                  AIは漏れなく、バイアスなく選択肢を提示できる。
+                </p>
+              </div>
+
+              {/* 人が担う部分 */}
+              <div className="bg-white p-6 border border-gray-200">
+                <div className="flex items-center gap-3 mb-3">
+                  <User className="w-5 h-5 text-amber-700" />
+                  <span className="text-sm text-amber-700 font-medium tracking-widest">PURPOSE / OUTPUT</span>
+                  <span className="text-xs bg-amber-700 text-white px-2 py-0.5">人が担う</span>
+                </div>
+                <p className="text-base text-gray-900 font-medium mb-2">
+                  目的を定め、最終決定を下す
+                </p>
+                <p className="text-sm text-gray-600">
+                  なぜこの判断をするのか、最終的に何を選ぶのか。
+                  これだけは人が責任を持って決める必要がある。
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 従来 vs 新しいアプローチ */}
+      <section className="px-6 py-20 md:py-28 bg-gray-900 text-white">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-xl md:text-2xl text-gray-900 mb-4">
-              業務・判断・ルールがあるところすべてに
+            <h2 className="text-xl md:text-2xl mb-12">
+              アプローチの違い
             </h2>
-            <p className="text-base text-gray-500 mb-12">
-              用途例
-            </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                { icon: FileText, label: "稟議承認ルール" },
-                { icon: Calculator, label: "経費精算ルール" },
-                { icon: CreditCard, label: "与信判断ロジック" },
-                { icon: ClipboardCheck, label: "見積承認基準" },
-                { icon: Scale, label: "業務判断の標準化" },
-                { icon: BookOpen, label: "規程・内規の実装" },
-              ].map((item) => (
-                <div key={item.label} className="bg-white p-6 border border-gray-200">
-                  <item.icon className="w-6 h-6 text-amber-700 mb-4" />
-                  <p className="text-base text-gray-900">{item.label}</p>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* 従来 */}
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <XCircle className="w-5 h-5 text-red-400" />
+                  <p className="text-red-400 font-medium">従来のアプローチ</p>
                 </div>
-              ))}
+                <ul className="space-y-4 text-gray-400">
+                  <li>プロセスをそのまま電子化</li>
+                  <li>人の作業をAIで補助</li>
+                  <li>承認フローを維持</li>
+                  <li>「人＝作業者」として設計</li>
+                </ul>
+              </div>
+
+              {/* 新しい */}
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <CheckCircle2 className="w-5 h-5 text-teal-400" />
+                  <p className="text-teal-400 font-medium">Insight Automatic Rules</p>
+                </div>
+                <ul className="space-y-4 text-gray-300">
+                  <li>業務を「判断」として再設計</li>
+                  <li>Input/OptionsはAIに完全移管</li>
+                  <li>人は例外判断のみ</li>
+                  <li>「人＝判断者」として設計</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-gray-700">
+              <p className="text-gray-400 text-base leading-relaxed">
+                業務効率化の本質は「人の作業を減らす」ことではない。
+                <br />
+                <span className="text-white">「人が判断すべきことだけに集中させる」</span>ことである。
+              </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Insight稟議との関係 */}
+      {/* Insight稟議 */}
       <section className="px-6 py-20 md:py-28">
         <div className="max-w-2xl mx-auto">
           <motion.div
@@ -249,15 +223,26 @@ export default function RulesPage() {
             </h2>
 
             <p className="text-base text-gray-600 leading-loose mb-10">
-              Insight Automatic Rulesの最初の実装として、
-              稟議システムを開発中。
+              従来の稟議システムを根本から再設計。
+              <br />
+              AIが情報収集と選択肢の整理を担い、
+              <br />
+              人は「承認すべきか否か」の判断のみに集中する。
             </p>
 
-            <ul className="space-y-4 text-base text-gray-600 mb-12">
-              <li>・自然言語でルール定義</li>
-              <li>・AIがコード生成</li>
-              <li>・テストで検証</li>
-              <li>・人は例外だけ判断</li>
+            <ul className="space-y-4 text-base text-gray-600 mb-10">
+              <li className="flex items-start gap-3">
+                <span className="text-teal-600">AI</span>
+                <span>過去の類似案件、リスク分析、比較データを自動収集</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-teal-600">AI</span>
+                <span>承認・却下・条件付き承認の選択肢と判断基準を提示</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-amber-700">人</span>
+                <span>提示された情報をもとに最終判断を下す</span>
+              </li>
             </ul>
 
             <p className="text-sm text-gray-400 tracking-widest">
@@ -267,32 +252,8 @@ export default function RulesPage() {
         </div>
       </section>
 
-      {/* クロージング */}
-      <section className="px-6 py-20 md:py-28 bg-gray-900 text-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-base text-gray-300 leading-loose mb-14">
-              自動化の問題は、技術ではありません。
-              <br />
-              「何を信じて動かすか」です。
-            </p>
-
-            <p className="text-sm text-amber-500 tracking-widest mb-3">
-              INSIGHT AUTOMATIC RULES
-            </p>
-            <p className="text-base text-gray-400">
-              Automatic, but verified.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28 bg-gray-50">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-gray-900 mb-10">
             意思決定の構造を理解する
