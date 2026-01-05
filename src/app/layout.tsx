@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GlobalNav } from "@/components/GlobalNav";
+import { GlobalNav, SiteNav } from "@/components/GlobalNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -38,6 +38,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white text-gray-900">
         <GlobalNav />
+        <SiteNav />
         <main>{children}</main>
         <SiteFooter />
       </body>
