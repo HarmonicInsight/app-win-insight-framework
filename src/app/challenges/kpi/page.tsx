@@ -57,20 +57,19 @@ export default function KPIChallengePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl"
           >
-            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-4">
+            <p className="text-sm text-gray-500 tracking-wider mb-6">
               課題を知る
             </p>
-            <h1 className="text-3xl md:text-4xl font-normal text-[var(--text-primary)] leading-tight mb-6">
+            <h1 className="text-2xl md:text-3xl font-normal text-gray-900 leading-relaxed mb-8">
               なぜKPIは機能しないのか
             </h1>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+            <p className="text-base text-gray-600 leading-loose">
               KPIを設定しても形骸化する。数字を追っても経営が良くならない。
               <br />
               問題はKPIの設計ではなく、KPIと「判断」の断絶にある。
@@ -80,15 +79,15 @@ export default function KPIChallengePage() {
       </section>
 
       {/* Quote */}
-      <section className="py-12 bg-neutral-100">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28 bg-gray-50">
+        <div className="max-w-2xl mx-auto">
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="text-center"
           >
-            <p className="text-xl md:text-2xl text-[var(--text-primary)] font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-900 font-light leading-loose">
               「KPIは判断を支援するためのものであり、
               <br className="hidden md:block" />
               判断を代替するものではない」
@@ -98,23 +97,23 @@ export default function KPIChallengePage() {
       </section>
 
       {/* Problems */}
-      <section className="py-16">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mb-12"
           >
-            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-2">
+            <p className="text-sm text-gray-500 tracking-wider mb-4">
               PROBLEMS
             </p>
-            <h2 className="text-2xl md:text-3xl font-normal text-[var(--text-primary)]">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900">
               KPIが機能しない4つの理由
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {problems.map((problem, index) => (
               <motion.div
                 key={problem.number}
@@ -122,25 +121,25 @@ export default function KPIChallengePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 border border-[var(--border-subtle)] bg-white"
+                className="p-8 border border-gray-200 bg-white"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <span className="text-3xl font-light text-[var(--accent-primary)]">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="text-3xl font-light text-amber-700">
                     {problem.number}
                   </span>
                   <div className="text-right">
-                    <span className="block text-2xl font-light text-[var(--accent-primary)]">
+                    <span className="block text-2xl font-light text-amber-700">
                       {problem.stat}
                     </span>
-                    <span className="text-xs text-[var(--text-muted)]">
+                    <span className="text-xs text-gray-500">
                       {problem.statLabel}
                     </span>
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2">
+                <h3 className="text-base font-medium text-gray-900 mb-3">
                   {problem.title}
                 </h3>
-                <p className="text-sm text-[var(--text-secondary)]">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {problem.description}
                 </p>
               </motion.div>
@@ -150,26 +149,25 @@ export default function KPIChallengePage() {
       </section>
 
       {/* Root Cause */}
-      <section className="py-16 bg-neutral-900 text-white">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28 bg-gray-900 text-white">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl"
           >
-            <p className="text-sm text-neutral-400 tracking-wider mb-4">
+            <p className="text-sm text-gray-400 tracking-wider mb-6">
               ROOT CAUSE
             </p>
-            <h2 className="text-2xl md:text-3xl font-normal mb-6">
+            <h2 className="text-xl md:text-2xl font-normal mb-10">
               根本原因：KPIと判断の断絶
             </h2>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
+            <div className="space-y-8">
+              <div className="flex items-start gap-5">
                 <XCircle className="w-6 h-6 text-red-400 shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">従来のアプローチ</p>
-                  <p className="text-neutral-400 mt-1">
+                  <p className="text-white font-medium text-base">従来のアプローチ</p>
+                  <p className="text-gray-400 mt-2 leading-relaxed">
                     KPIを設定 → 数字を追跡 → 結果を報告
                     <br />
                     <span className="text-sm">
@@ -178,11 +176,11 @@ export default function KPIChallengePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-5">
                 <CheckCircle2 className="w-6 h-6 text-green-400 shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">意思決定Box アプローチ</p>
-                  <p className="text-neutral-400 mt-1">
+                  <p className="text-white font-medium text-base">意思決定Box アプローチ</p>
+                  <p className="text-gray-400 mt-2 leading-relaxed">
                     判断を定義 → 必要なインプットを特定 → KPIとして設計
                     <br />
                     <span className="text-sm">
@@ -197,18 +195,18 @@ export default function KPIChallengePage() {
       </section>
 
       {/* Solutions */}
-      <section className="py-16">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mb-12"
           >
-            <p className="text-sm text-[var(--text-muted)] tracking-wider mb-2">
+            <p className="text-sm text-gray-500 tracking-wider mb-4">
               SOLUTIONS
             </p>
-            <h2 className="text-2xl md:text-3xl font-normal text-[var(--text-primary)]">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900">
               解決への3つのアプローチ
             </h2>
           </motion.div>
@@ -224,12 +222,12 @@ export default function KPIChallengePage() {
               >
                 <Link
                   href={solution.href}
-                  className="block p-6 border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] transition-colors h-full group"
+                  className="block p-6 border border-gray-200 hover:border-amber-700 transition-colors h-full group"
                 >
-                  <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-primary)] transition-colors">
+                  <h3 className="text-base font-medium text-gray-900 mb-3 group-hover:text-amber-700 transition-colors">
                     {solution.title}
                   </h3>
-                  <p className="text-sm text-[var(--text-secondary)]">
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     {solution.description}
                   </p>
                 </Link>
@@ -240,23 +238,22 @@ export default function KPIChallengePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-neutral-100">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28 bg-gray-50">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
           >
-            <h2 className="text-2xl font-normal text-[var(--text-primary)] mb-4">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900 mb-6">
               KPIを「判断のインプット」として再設計する
             </h2>
-            <p className="text-[var(--text-secondary)] mb-8">
+            <p className="text-base text-gray-600 mb-10 leading-relaxed">
               意思決定Boxを理解することで、KPIは初めて本来の機能を果たします。
             </p>
             <Link
               href="/framework"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent-primary)] text-white font-medium hover:bg-[var(--accent-primary-light)] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-amber-700 text-white font-medium hover:bg-amber-800 transition-colors"
             >
               フレームワークを見る
               <ArrowRight className="w-4 h-4" />
