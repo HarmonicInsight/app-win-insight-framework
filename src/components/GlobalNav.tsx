@@ -131,4 +131,25 @@ export function GlobalNav() {
   );
 }
 
+// サイト内ナビゲーション（2段目）
+export function SiteNav() {
+  return (
+    <nav className="sticky top-10 left-0 right-0 bg-white border-b border-gray-200 z-40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center h-12 text-sm overflow-x-auto">
+          {internalPages.map((page, index) => (
+            <Link
+              key={page.href}
+              href={page.href}
+              className="text-gray-600 hover:text-amber-700 transition-colors whitespace-nowrap px-3 first:pl-0"
+            >
+              {page.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default GlobalNav;
