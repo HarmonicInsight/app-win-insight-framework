@@ -279,9 +279,11 @@ export default function ExamplesPage() {
               具体例
             </h1>
             <p className="text-base text-gray-600 leading-loose">
-              日常の判断から業務の判断まで、
+              意思決定を構造化すると、
               <br className="hidden sm:block" />
-              すべて同じ構造で表現できます。
+              必要なインプットと条件が明確になり、
+              <br className="hidden sm:block" />
+              人がどう判断していたか、どれをAIに任せるかが見える。
             </p>
           </motion.div>
         </div>
@@ -517,14 +519,34 @@ export default function ExamplesPage() {
           >
             <div className="bg-white p-8 md:p-10 border border-gray-200">
               <h3 className="text-xl font-medium text-gray-900 mb-6">
-                すべての判断は同じ構造に収まる
+                構造化することで見えるもの
               </h3>
-              <p className="text-base text-gray-600 leading-loose">
-                誕生日プレゼントの選択も、数億円の予算配分も、構造は同じです。
-                違うのはインプットの複雑さとステークホルダーの数だけ。
-                この構造を理解すれば、あらゆる判断を再現可能な形で記録し、
-                組織の知的資産として蓄積できます。
+              <p className="text-base text-gray-900 mb-6">
+                誕生日プレゼントも、数億円の予算配分も、構造は同じ。
               </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <span className="text-amber-700 shrink-0">•</span>
+                  求めているアウトプットに必要なインプットが明確になる
+                </li>
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <span className="text-amber-700 shrink-0">•</span>
+                  人がどのような判断をしていたかが可視化される
+                </li>
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <span className="text-amber-700 shrink-0">•</span>
+                  どれをAIに任せ、どれを人が判断すべきかが分かる
+                </li>
+              </ul>
+              <div className="pt-6 border-t border-gray-100">
+                <p className="text-base text-gray-600 leading-relaxed">
+                  <span className="text-teal-600 font-medium">インプット収集</span>と
+                  <span className="text-teal-600 font-medium">選択肢整理</span>はAIが得意。
+                  <br />
+                  人は<span className="text-amber-700 font-medium">条件設定</span>と
+                  <span className="text-amber-700 font-medium">最終判断</span>に集中できる。
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
