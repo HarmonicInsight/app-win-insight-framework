@@ -9,6 +9,7 @@ const internalPages = [
   { name: "課題を知る", href: "/challenges/kpi", label: "CHALLENGES" },
   { name: "フレームワーク", href: "/framework", label: "FRAMEWORK" },
   { name: "ルール", href: "/rules", label: "RULES" },
+  { name: "自動承認", href: "/automatic-rules", label: "AUTOMATIC" },
   { name: "実装", href: "/pixie", label: "IMPLEMENTATION" },
   { name: "事例", href: "/examples", label: "STORIES" },
 ];
