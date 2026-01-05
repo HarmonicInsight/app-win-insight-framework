@@ -265,21 +265,20 @@ export default function ExamplesPage() {
       : examples.filter((e) => e.category === activeCategory);
 
   return (
-    <div className="bg-gradient-page">
+    <div>
       {/* Hero Section */}
-      <section className="section bg-gradient-hero">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial="initial"
             animate="animate"
             variants={fadeInUp}
-            className="max-w-3xl mx-auto text-center"
           >
-            <span className="section-label">Examples</span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-4">
+            <p className="text-sm text-amber-700 tracking-widest mb-6">Examples</p>
+            <h1 className="text-2xl md:text-3xl font-normal text-gray-900 mb-8">
               具体例
             </h1>
-            <p className="text-lg text-[var(--text-secondary)] mt-6">
+            <p className="text-base text-gray-600 leading-loose">
               日常の判断から業務の判断まで、
               <br className="hidden sm:block" />
               すべて同じ構造で表現できます。
@@ -289,39 +288,39 @@ export default function ExamplesPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 border-b border-[var(--border-subtle)]">
-        <div className="container">
-          <div className="flex justify-center gap-2">
+      <section className="px-6 py-6 border-b border-gray-200">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-center gap-3">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-5 py-3 text-base font-medium transition-colors ${
                 activeCategory === "all"
-                  ? "bg-[var(--accent-primary)] text-white"
-                  : "bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]"
+                  ? "bg-amber-700 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
               すべて
             </button>
             <button
               onClick={() => setActiveCategory("daily")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
+              className={`px-5 py-3 text-base font-medium transition-colors flex items-center gap-2 ${
                 activeCategory === "daily"
-                  ? "bg-[var(--accent-primary)] text-white"
-                  : "bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]"
+                  ? "bg-amber-700 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
-              <Coffee className="w-4 h-4" />
+              <Coffee className="w-5 h-5" />
               日常編
             </button>
             <button
               onClick={() => setActiveCategory("business")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
+              className={`px-5 py-3 text-base font-medium transition-colors flex items-center gap-2 ${
                 activeCategory === "business"
-                  ? "bg-[var(--accent-primary)] text-white"
-                  : "bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)]"
+                  ? "bg-amber-700 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
-              <Briefcase className="w-4 h-4" />
+              <Briefcase className="w-5 h-5" />
               業務編
             </button>
           </div>
@@ -329,9 +328,9 @@ export default function ExamplesPage() {
       </section>
 
       {/* Examples Grid */}
-      <section className="section">
-        <div className="container">
-          <div className="space-y-6 max-w-4xl mx-auto">
+      <section className="px-6 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-6">
             <AnimatePresence mode="wait">
               {filteredExamples.map((example, index) => {
                 const Icon = example.icon;
@@ -344,44 +343,44 @@ export default function ExamplesPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ delay: index * 0.05 }}
-                    className="card cursor-pointer"
+                    className="bg-white border border-gray-200 p-6 cursor-pointer hover:border-gray-300 transition-colors"
                     onClick={() =>
                       setExpandedExample(isExpanded ? null : example.id)
                     }
                   >
                     {/* Header */}
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-5">
                       <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                        className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${
                           example.category === "daily"
-                            ? "bg-[var(--accent-green)]/10"
-                            : "bg-[var(--accent-primary)]/10"
+                            ? "bg-teal-50"
+                            : "bg-amber-50"
                         }`}
                       >
                         <Icon
-                          className={`w-6 h-6 ${
+                          className={`w-7 h-7 ${
                             example.category === "daily"
-                              ? "text-[var(--accent-green)]"
-                              : "text-[var(--accent-primary)]"
+                              ? "text-teal-600"
+                              : "text-amber-700"
                           }`}
                         />
                       </div>
                       <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
+                        <div className="flex items-center gap-2 mb-2">
                           <span
-                            className={`text-xs px-2 py-0.5 rounded ${
+                            className={`text-sm px-3 py-1 ${
                               example.category === "daily"
-                                ? "bg-[var(--accent-green)]/10 text-[var(--accent-green)]"
-                                : "bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]"
+                                ? "bg-teal-50 text-teal-600"
+                                : "bg-amber-50 text-amber-700"
                             }`}
                           >
                             {example.category === "daily" ? "日常" : "業務"}
                           </span>
                         </div>
-                        <h3 className="text-lg font-bold text-[var(--text-primary)]">
+                        <h3 className="text-lg font-medium text-gray-900">
                           {example.title}
                         </h3>
-                        <p className="text-sm text-[var(--text-secondary)] mt-1">
+                        <p className="text-base text-gray-600 mt-2">
                           {example.scenario}
                         </p>
                       </div>
@@ -390,7 +389,7 @@ export default function ExamplesPage() {
                           isExpanded ? "rotate-90" : ""
                         }`}
                       >
-                        <ArrowRight className="w-5 h-5 text-[var(--text-muted)]" />
+                        <ArrowRight className="w-6 h-6 text-gray-400" />
                       </div>
                     </div>
 
@@ -405,21 +404,19 @@ export default function ExamplesPage() {
                           className="overflow-hidden"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <div className="mt-6 pt-6 border-t border-[var(--border-subtle)] space-y-6">
+                          <div className="mt-8 pt-8 border-t border-gray-200 space-y-8">
                             {/* Input */}
                             <div>
-                              <h4 className="text-sm font-semibold text-[var(--accent-primary)] mb-2">
+                              <h4 className="text-base font-medium text-amber-700 mb-4">
                                 インプット
                               </h4>
-                              <ul className="space-y-1">
+                              <ul className="space-y-3">
                                 {example.input.map((item, i) => (
                                   <li
                                     key={i}
-                                    className="text-sm text-[var(--text-secondary)] flex items-start gap-2"
+                                    className="text-base text-gray-600 flex items-start gap-3"
                                   >
-                                    <span className="text-[var(--text-muted)]">
-                                      •
-                                    </span>
+                                    <span className="text-gray-400">•</span>
                                     {item}
                                   </li>
                                 ))}
@@ -428,23 +425,23 @@ export default function ExamplesPage() {
 
                             {/* Condition */}
                             <div>
-                              <h4 className="text-sm font-semibold text-[var(--accent-teal)] mb-2">
+                              <h4 className="text-base font-medium text-teal-600 mb-4">
                                 コンディション
                               </h4>
-                              <div className="space-y-2">
+                              <div className="space-y-4">
                                 <div>
-                                  <span className="text-xs text-[var(--text-muted)]">
+                                  <span className="text-sm text-gray-500">
                                     制約：
                                   </span>
-                                  <p className="text-sm text-[var(--text-secondary)]">
+                                  <p className="text-base text-gray-600 mt-1">
                                     {example.condition.constraints.join(" / ")}
                                   </p>
                                 </div>
                                 <div>
-                                  <span className="text-xs text-[var(--text-muted)]">
+                                  <span className="text-sm text-gray-500">
                                     優先順位：
                                   </span>
-                                  <p className="text-sm text-[var(--text-primary)] font-medium">
+                                  <p className="text-base text-gray-900 font-medium mt-1">
                                     {example.condition.priority}
                                   </p>
                                 </div>
@@ -453,32 +450,32 @@ export default function ExamplesPage() {
 
                             {/* Options */}
                             <div>
-                              <h4 className="text-sm font-semibold text-[var(--accent-purple)] mb-2">
+                              <h4 className="text-base font-medium text-purple-600 mb-4">
                                 選択肢
                               </h4>
-                              <div className="space-y-2">
+                              <div className="space-y-3">
                                 {example.options.map((option) => (
                                   <div
                                     key={option.id}
-                                    className={`p-3 rounded-lg ${
+                                    className={`p-4 ${
                                       example.output.selected.includes(
                                         option.id + "案"
                                       )
-                                        ? "bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/30"
-                                        : "bg-[var(--bg-tertiary)]"
+                                        ? "bg-teal-50 border border-teal-200"
+                                        : "bg-gray-50"
                                     }`}
                                   >
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-sm font-medium text-[var(--text-primary)]">
+                                    <div className="flex items-center gap-3">
+                                      <span className="text-base font-medium text-gray-900">
                                         {option.id}案：{option.name}
                                       </span>
                                       {example.output.selected.includes(
                                         option.id + "案"
                                       ) && (
-                                        <CheckCircle2 className="w-4 h-4 text-[var(--accent-green)]" />
+                                        <CheckCircle2 className="w-5 h-5 text-teal-600" />
                                       )}
                                     </div>
-                                    <p className="text-xs text-[var(--text-muted)] mt-1">
+                                    <p className="text-sm text-gray-500 mt-2">
                                       {option.description}
                                     </p>
                                   </div>
@@ -487,14 +484,14 @@ export default function ExamplesPage() {
                             </div>
 
                             {/* Output */}
-                            <div className="p-4 bg-[var(--accent-green)]/10 rounded-lg border-l-3 border-[var(--accent-green)]">
-                              <h4 className="text-sm font-semibold text-[var(--accent-green)] mb-2">
+                            <div className="p-6 bg-teal-50 border-l-4 border-teal-600">
+                              <h4 className="text-base font-medium text-teal-700 mb-3">
                                 アウトプット（決定）
                               </h4>
-                              <p className="font-bold text-[var(--text-primary)]">
+                              <p className="text-lg font-medium text-gray-900">
                                 {example.output.selected}
                               </p>
-                              <p className="text-sm text-[var(--text-secondary)] mt-1">
+                              <p className="text-base text-gray-600 mt-2">
                                 {example.output.reason}
                               </p>
                             </div>
@@ -511,19 +508,18 @@ export default function ExamplesPage() {
       </section>
 
       {/* Key Insight */}
-      <section className="section bg-[var(--bg-secondary)]">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28 bg-gray-50">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
           >
-            <div className="highlight-box">
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-3">
+            <div className="bg-white p-8 md:p-10 border border-gray-200">
+              <h3 className="text-xl font-medium text-gray-900 mb-6">
                 すべての判断は同じ構造に収まる
               </h3>
-              <p className="text-[var(--text-secondary)]">
+              <p className="text-base text-gray-600 leading-loose">
                 誕生日プレゼントの選択も、数億円の予算配分も、構造は同じです。
                 違うのはインプットの複雑さとステークホルダーの数だけ。
                 この構造を理解すれば、あらゆる判断を再現可能な形で記録し、
@@ -535,27 +531,32 @@ export default function ExamplesPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
-        <div className="container">
+      <section className="px-6 py-20 md:py-28">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-2xl font-bold text-[var(--text-primary)]">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900 mb-6">
               次のステップ
             </h2>
-            <p className="text-[var(--text-muted)] mt-4">
+            <p className="text-base text-gray-600 mb-10">
               具体例を理解したら、フレームワークの詳細や応用編へ進みましょう。
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <Link href="/framework" className="btn btn-primary">
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/framework"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-amber-700 text-white text-base font-medium hover:bg-amber-800 transition-colors"
+              >
                 フレームワーク詳細
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/pixie" className="btn btn-ghost">
-                Pixieフレームワーク
+              <Link
+                href="/pixie"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-gray-300 text-gray-700 text-base font-medium hover:bg-gray-50 transition-colors"
+              >
+                AIエージェントフレームワーク
               </Link>
             </div>
           </motion.div>

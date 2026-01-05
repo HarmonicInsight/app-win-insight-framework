@@ -55,22 +55,22 @@ const comparison = [
   {
     aspect: "管理対象",
     traditional: "タスク（何をするか）",
-    pixie: "成果物（何を出すか）",
+    agent: "成果物（何を出すか）",
   },
   {
     aspect: "更新方法",
     traditional: "手動でステータス変更",
-    pixie: "実行結果を自動記録",
+    agent: "実行結果を自動記録",
   },
   {
     aspect: "実行者",
     traditional: "人間が前提",
-    pixie: "人間・AI・外部サービスを選択可能",
+    agent: "人間・AI・外部サービスを選択可能",
   },
   {
     aspect: "再利用性",
     traditional: "同じタスクを毎回作成",
-    pixie: "ジョブ定義を再利用",
+    agent: "ジョブ定義を再利用",
   },
 ];
 
@@ -86,9 +86,9 @@ export default function PixiePage() {
             variants={fadeInUp}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="section-label">Pixie Framework</span>
+            <span className="section-label">AI Agent Framework</span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mt-4">
-              Pixieフレームワーク
+              AIエージェントフレームワーク
             </h1>
             <p className="text-lg text-[var(--text-secondary)] mt-6">
               業務を「入力 → 処理 → 出力」の関数として捉え、
@@ -113,7 +113,7 @@ export default function PixiePage() {
               基本構造
             </h2>
             <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
-              Pixieは「ジョブ」を定義し、「成果物」を生成するシンプルな構造です。
+              AIエージェントフレームワークは「ジョブ」を定義し、「成果物」を生成するシンプルな構造です。
             </p>
           </motion.div>
 
@@ -148,12 +148,12 @@ export default function PixiePage() {
 
                 <ArrowRight className="w-8 h-8 text-[var(--text-muted)] rotate-90 md:rotate-0" />
 
-                {/* Pixie */}
+                {/* Executor */}
                 <div className="flex-1 text-center">
                   <div className="w-16 h-16 rounded-xl bg-[var(--accent-purple)]/10 flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-[var(--accent-purple)]" />
                   </div>
-                  <h3 className="font-bold text-[var(--text-primary)]">Pixie</h3>
+                  <h3 className="font-bold text-[var(--text-primary)]">Executor</h3>
                   <p className="text-sm text-[var(--text-muted)] mt-2">
                     実行者
                   </p>
@@ -274,7 +274,7 @@ export default function PixiePage() {
                       従来のタスク管理
                     </th>
                     <th className="text-left p-4 text-sm font-medium text-[var(--accent-primary)]">
-                      Pixie
+                      AIエージェント
                     </th>
                   </tr>
                 </thead>
@@ -300,7 +300,7 @@ export default function PixiePage() {
                       <td className="p-4 text-sm text-[var(--text-secondary)]">
                         <div className="flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4 text-[var(--accent-green)]" />
-                          {row.pixie}
+                          {row.agent}
                         </div>
                       </td>
                     </tr>
@@ -372,7 +372,7 @@ export default function PixiePage() {
                 AI協働時代の業務設計
               </h3>
               <p className="text-[var(--text-secondary)]">
-                Pixieフレームワークは、AIエージェントとの協働を前提とした業務設計を可能にします。
+                AIエージェントフレームワークは、AIエージェントとの協働を前提とした業務設計を可能にします。
                 属人的な業務を構造化し、実行者が誰（何）であっても同じ品質の成果物を得ることができます。
                 今日は人間が実行し、明日はAIが実行する。そんな柔軟な業務運用を実現します。
               </p>
@@ -394,7 +394,7 @@ export default function PixiePage() {
               次のステップ
             </h2>
             <p className="text-[var(--text-muted)] mt-4">
-              Pixieの考え方をBPO改革に応用したAI BPO方法論も確認してみましょう。
+              AIエージェントフレームワークの考え方をBPO改革に応用したAI BPO方法論も確認してみましょう。
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Link href="/ai-bpo" className="btn btn-primary">
