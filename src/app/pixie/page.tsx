@@ -509,12 +509,12 @@ export default function PixiePage() {
 
               <div className="mt-8 pt-6 border-t border-gray-100">
                 <a
-                  href="https://github.com/HarmonicInsight/InsightPy"
+                  href="https://insight-series-site.vercel.app/products/insightpy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-800 transition-colors"
                 >
-                  GitHubで見る
+                  詳細を見る
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
