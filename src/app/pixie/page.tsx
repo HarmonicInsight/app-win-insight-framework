@@ -459,8 +459,72 @@ export default function PixiePage() {
         </div>
       </section>
 
+      {/* InsightPy */}
+      <section className="px-6 py-16 md:py-24 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs tracking-widest text-gray-500 mb-4">
+              TOOL
+            </p>
+            <h2 className="text-xl md:text-2xl text-gray-900 mb-8">
+              InsightPy
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed mb-8">
+              AIが生成したPythonスクリプトを実行する環境。
+              <br />
+              要件をスクリプトとして保存し、いつでも再実行できる。
+            </p>
+
+            <div className="bg-white border border-gray-200 p-8">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <p className="text-sm font-medium text-gray-900 mb-2">
+                    スクリプト管理
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    保存・読込・編集
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900 mb-2">
+                    即時実行
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Pythonコードをその場で実行
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900 mb-2">
+                    結果確認
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    実行結果をすぐに表示
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-100">
+                <a
+                  href="https://github.com/HarmonicInsight/InsightPy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-amber-700 hover:text-amber-800 transition-colors"
+                >
+                  GitHubで見る
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="px-6 py-20 md:py-28 bg-gray-50">
+      <section className="px-6 py-20 md:py-28">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-gray-900 mb-10">
             意思決定の構造を理解する
